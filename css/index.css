@@ -189,28 +189,23 @@ body {
   color: #daa520;
 }
 header {
-  height: 45vh;
-  width: 100%;
-}
-header .quick-bio {
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: row-reverse;
-  margin: 6% 10%;
+  height: 45vh;
+  width: 100%;
 }
-header p {
+header .quick-bio {
   width: 50%;
+}
+header .quick-bio p {
+  width: 100%;
   font-size: 2rem;
   line-height: 1.3;
 }
 header img {
-  width: 20%;
+  width: 60%;
   height: auto;
-  border-radius: 50%;
-}
-header h1 {
-  font-size: 3rem;
-  margin-left: 18%;
-  margin-top: -5%;
+  border: 1px solid #fff;
 }
