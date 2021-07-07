@@ -4,56 +4,399 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
 }
 
-html, body {
-    height: 100%;
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+
+// mixins
+.border {
+  border-bottom: 1px solid #fff;
 }
 
+.header-footer {
+  background: #171a21;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+// variables
+@main-bg: #617073;
+@font-color: #fff;
+@font-type: "Raleway", sans-serif;
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: @font-type;
+  background: #7a93ac;
+}
+
+.main-wrapper {
+  width: 70%;
+  background: @main-bg;
+  margin: 0 auto;
+}
+
+.nav-logo {
+  width: 100%;
+  .header-footer();
+  .flex-row();
+  flex-direction: row-reverse;
+
+  @media (max-width: 500px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .nav {
+    .flex-row();
+    width: 40%;
+
+    @media (max-width: 500px) {
+      width: 100%;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.7rem;
+      margin: 0 auto;
+
+      @media (max-width: 500px) {
+        font-size: 1.3rem;
+        margin-bottom: 3%;
+      }
+    }
+
+    a:hover {
+      color: #daa520;
+    }
+  }
+}
+header {
+  .flex-row;
+  flex-direction: row-reverse;
+  height: auto;
+  width: 90%;
+  .border();
+  margin: 0 auto;
+
+  @media (max-width: 500px) {
+    flex-direction: column-reverse;
+  }
+
+  .quick-bio {
+    width: 50%;
+
+    @media (max-width: 500px) {
+      width: 95%;
+    }
+
+    p {
+      width: 100%;
+      font-size: 2rem;
+      line-height: 2;
+      padding-right: 6%;
+
+      @media (max-width: 500px) {
+        font-size: 1.5rem;
+        padding: 8%;
+        line-height: 1.2;
+      }
+    }
+  }
+
+  .bio-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 60%;
+      height: auto;
+      .border();
+      margin: 10% auto 5%;
+    }
+
+    h1 {
+      font-size: 4rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 5%;
+
+      @media (max-width: 500px) {
+        text-align: center;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+.goals {
+  font-size: 2rem;
+  line-height: 1.3;
+  width: 90%;
+  margin: 1% auto 0;
+  padding: 7%;
+  .border();
+
+  @media (max-width: 500px) {
+    font-size: 1.5rem;
+    padding: 8%;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  .button {
+    border: 1px solid #fff;
+    width: 25%;
+    text-align: center;
+    padding: 1% 0;
+    margin-top: 3%;
+
+    @media (max-width: 500px) {
+      font-size: 1.5rem;
+      width: 95%;
+    }
+  }
+}
+
+.skills-section {
+  .flex-row();
+  justify-content: space-between;
+  width: 90%;
+  margin: 1% auto 10%;
+  font-size: 2rem;
+  line-height: 1.4;
+  .border();
+  padding: 7%;
+
+  @media (max-width: 500px) {
+    font-size: 1.5rem;
+    padding: 8%;
+    flex-direction: column;
+  }
+
+  .about-skills {
+    width: 50%;
+    padding-right: 6%;
+
+    @media (max-width: 500px) {
+      font-size: 1.5rem;
+      margin-bottom: 5%;
+      width: 95%;
+    }
+  }
+
+  h2 {
+    font-size: 2.7rem;
+    margin-bottom: 2%;
+  }
+
+  ul {
+    width: 50%;
+  }
+
+  .flex-list ul,
+  li,
+  img {
+    display: inline;
+  }
+
+  img {
+    width: 7%;
+    padding-left: 2%;
+  }
+}
+
+.work-history {
+  h2 {
+    font-size: 3rem;
+    margin: 0 auto 2%;
+    width: 80%;
+  }
+
+  table {
+    width: 80%;
+    margin: 0 auto 5%;
+    border-collapse: collapse;
+    font-size: 1.6rem;
+  }
+
+  td,
+  th {
+    border: 1px solid #fff;
+    text-align: left;
+    padding: 3%;
+  }
+
+  tr:nth-child(even) {
+    .header-footer();
+    color: @font-color;
+  }
+}
+
+footer {
+  width: 100%;
+  .header-footer();
+
+  p {
+    color: #fff;
+    padding: 5%;
+    text-align: center;
+    font-size: 1.5rem;
+
+    @media (max-width: 500px) {
+      font-size: 1.7rem;
+    }
+  }
+}
